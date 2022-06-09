@@ -24,14 +24,28 @@ let newBook;
 
 function addBookToLibrary() {
     event.preventDefault();
+    popUpForm.style.display = 'none';
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
+    storeData();
     render();
+    form.reset();
+}
+
+// Renders the book in browser
+function render() {
+    const display = document.querySelector('#book-container');
+    const books = document.querySelectorAll('.book');
+    books.forEach(book => display.removeChild(book));
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        domBook(myLibrary[i]);
+    }
 }
 
 // DOM Elements
 function domBook(item) {
-    const library = document.querySelector('book-container');
+    const library = document.querySelector('#book-container');
     const bookDiv = document.createElement('div');
     const titleDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
@@ -39,7 +53,7 @@ function domBook(item) {
     const readBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
 
-    bookDiv.classList.add('.book');
+    bookDiv.classList.add('book');
     bookDiv.setAttribute('id', myLibrary.indexOf(item));
 
     titleDiv.textContent = item.title;
@@ -48,7 +62,7 @@ function domBook(item) {
 
     authorDiv.textContent = item.author;
     authorDiv.classList.add('author');
-    bookDiv.appendChild(author);
+    bookDiv.appendChild(authorDiv);
 
     pagesDiv.textContent = item.pages;
     pagesDiv.classList.add('pages');
@@ -70,21 +84,30 @@ function domBook(item) {
 
     removeBtn.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(item), 1);
+        storeData();
+        render();
     });
 
     readBtn.addEventListener('click', () => {
         item.read = !item.read;
+        storeData();
         render();
     })
 }
 
-// Renders the book in browser
-function render() {
-    const display = document.querySelector('book-container');
-    const books = document.querySelectorAll('.book');
-    books.forEach(book => display.removeChild(book));
+function storeData() {
+    localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
+}
 
-    for (let i = 0; i < myLibrary.length; i++) {
-        domBook(myLibrary.indexOf[i]);
+function restore() {
+    if (!localStorage.myLibrary) {
+        render();
+    } else {
+        let object = localStorage.getItem(`myLibrary`);
+        object = JSON.parse(object);
+        myLibrary = object;
+        render();
     }
 }
+
+restore();
