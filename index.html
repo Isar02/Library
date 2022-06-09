@@ -15,31 +15,34 @@
 </head>
 
 <body>
-    <header>
-        <h1>Library</h1>
-        <button id="newBtn">New Book</button>
-    </header>
-    <div id="popUp">
-        <form id="form" action="/script.js">
-            <span id="close">&times</span><br>
+    <div class="content">
+        <header>
+            <h1>Library</h1>
+            <button id="newBtn">New Book</button>
+        </header>
+        <div id="popUp">
+            <form id="form" action="/script.js">
+                <span id="close">&times</span><br>
 
-            <input type="text" id="title" name="title" placeholder="Title...">
-            <label for="title"></label><br>
+                <input type="text" id="title" name="title" placeholder="Title...">
+                <label for="title"></label><br>
 
-            <input type="text" id="author" name="author" placeholder="Author...">
-            <label for="author"></label><br>
+                <input type="text" id="author" name="author" placeholder="Author...">
+                <label for="author"></label><br>
 
-            <input type="number" id="number" name="number" placeholder="Pages...">
-            <label for="pages"></label><br>
+                <input type="number" id="number" name="number" placeholder="Pages...">
+                <label for="pages"></label><br>
 
-            <label for="read">Have you read this book?</label>
-            <input type="checkbox" id="read" name="read"><br>
+                <label for="read">Have you read this book?</label>
+                <input type="checkbox" id="read" name="read"><br>
 
-            <button id="addBtn" form="form">Add Book</button>
+                <button id="addBtn" form="form">Add Book</button>
+        </div>
 
         </form>
-        <div class="container"></div>
+        <div class="book-container"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
