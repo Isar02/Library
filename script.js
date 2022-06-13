@@ -82,8 +82,10 @@ function domBook(item) {
     bookDiv.appendChild(readBtn);
     if (item.read === false) {
         readBtn.textContent = 'Not Read';
+        readBtn.classList.add('btn-red');
     } else {
         readBtn.textContent = 'Read';
+        readBtn.classList.add('btn-green');
     }
 
     removeBtn.textContent = 'Remove';

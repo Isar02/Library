@@ -78,7 +78,6 @@ header h1 {
     font-weight: bold;
     border: none;
     outline: none;
-    padding: 10px 15px;
     margin-left: 15.8rem;
 }
 
@@ -141,11 +140,17 @@ input {
     pointer-events: all;
 }
 
-#title {}
+#title {
+    font-weight: bold;
+}
 
-#author {}
+#author {
+    font-weight: bold;
+}
 
-#pages {}
+#pages {
+    font-weight: bold;
+}
 
 .isRead {
     font-weight: 600;
@@ -158,12 +163,20 @@ input {
 
 #addBtn {
     width: 100%;
+    font-weight: bold;
+    margin-top: 1rem;
     padding: 10px 15px;
     border-radius: var(--border-radius);
     outline: none;
     outline: none;
     border: var(--light-green);
     background-color: var(--light-green);
+    cursor: pointer;
+    transition: filter 0.15s ease-in-out;
+}
+
+#addBtn:hover {
+    filter: brightness(90%);
 }
 
 #read {
@@ -173,17 +186,23 @@ input {
     accent-color: var(--white);
 }
 
+#read:active {
+    color: var(--white);
+}
+
 /* Added books */
 .book {
     display: inline-grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: 2rem;
+    margin: 3rem;
+    margin-left: 4rem;
     font-size: 20px;
+    color: var(--white);
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
+    border: 1px solid var(--white);
     border-radius: var(--border-radius);
-    background-color: var(--white);
+    background-color: #120B1D;
     box-shadow: var(--shadow);
     line-height: 1.2;
 }
@@ -205,6 +224,42 @@ input {
 .book .readBtn,
 #removeBtn {
     display: inline-block;
-    width: 100px;
+    width: 100%;
     margin: auto;
+    cursor: pointer;
+}
+
+.readBtn,
+#removeBtn {
+    transition: filter 0.15s ease-in-out;
+}
+
+.readBtn:hover,
+#removeBtn:hover {
+    filter: brightness(90%);
+}
+
+.btn-green {
+    display: block;
+    background-color: var(--light-green);
+    border-radius: var(--border-radius);
+    border: var(--light-green);
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.btn-red {
+    font-weight: bold;
+    background-color: var(--light-red);
+    border: var(--light-red);
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+}
+
+#removeBtn {
+    font-weight: bold;
+    background-color: var(--grey);
+    border: var(--grey);
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
 }
