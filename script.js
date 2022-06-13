@@ -2,12 +2,16 @@ const newBtn = document.querySelector('#newBtn');
 const addBtn = document.querySelector('#addBtn');
 const popUpForm = document.querySelector('#popUp');
 const closeBtn = document.querySelector('#close');
+const overlay = document.querySelector('#overlay');
 
-newBtn.addEventListener('click', () => popUpForm.style.display = 'block');
+newBtn.addEventListener('click', () => overlay.classList.add('active'));
+
+newBtn.addEventListener('click', () => popUpForm.classList.add('active'));
+
 
 addBtn.addEventListener('click', addBookToLibrary);
 
-closeBtn.addEventListener('click', () => popUpForm.style.display = 'none');
+closeBtn.addEventListener('click', closePopUp);
 
 // Constructor
 class Book {
@@ -24,12 +28,18 @@ let newBook;
 
 function addBookToLibrary() {
     event.preventDefault();
-    popUpForm.style.display = 'none';
+    popUpForm.classList.remove('active');
+    overlay.classList.remove('active');
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     storeData();
     render();
     form.reset();
+}
+
+function closePopUp() {
+    popUpForm.classList.remove('active');
+    overlay.classList.remove('active');
 }
 
 // Renders the book in browser
@@ -111,3 +121,5 @@ function restore() {
 }
 
 restore();
+
+//Overlay

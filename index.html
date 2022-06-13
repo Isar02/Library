@@ -4,7 +4,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon"
         href="https://cdn.shopify.com/s/files/1/1061/1924/products/Open_Book_Emoji_grande.png?v=1571606064">
     <link rel="stylesheet" href="style.css">
@@ -33,13 +33,16 @@
                 <input type="number" id="pages" name="pages" placeholder="Pages...">
                 <label for="pages"></label><br>
 
-                <label for="read">Have you read this book?</label>
-                <input type="checkbox" id="read" name="read"><br>
+                <div class="is-read">
+                    <label for="read" class="isRead">Have you read this book?</label>
+                    <input type="checkbox" id="read" name="read"><br>
+                </div>
 
                 <button id="addBtn" form="form">Add Book</button>
         </div>
 
         </form>
+        <div id="overlay"></div>
         <div id="book-container"></div>
     </div>
     <script src="script.js"></script>
