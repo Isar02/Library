@@ -1,7 +1,6 @@
 const newBtn = document.querySelector('#newBtn');
 const addBtn = document.querySelector('#addBtn');
 const popUpForm = document.querySelector('#popUp');
-const closeBtn = document.querySelector('#close');
 const overlay = document.querySelector('#overlay');
 
 newBtn.addEventListener('click', () => overlay.classList.add('active'));
@@ -10,8 +9,6 @@ newBtn.addEventListener('click', () => popUpForm.classList.add('active'));
 
 
 addBtn.addEventListener('click', addBookToLibrary);
-
-closeBtn.addEventListener('click', closePopUp);
 
 // Constructor
 class Book {
@@ -37,10 +34,30 @@ function addBookToLibrary() {
     form.reset();
 }
 
-function closePopUp() {
-    popUpForm.classList.remove('active');
+function popUpModal() {
+    popUp.classList.add('active');
+    overlay.classList.add('active');
+}
+
+// Close all modals
+
+const closeModal = () => {
+    popUp.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+const closeAllModals = () => {
+    closeModal();
+}
+
+const handleKeyboardInput = (e) => {
+    if (e.key === 'Escape') closeAllModals()
+}
+
+overlay.onclick = closeAllModals;
+window.onkeydown = handleKeyboardInput;
+
+// Close all modals
 
 // Renders the book in browser
 function render() {
