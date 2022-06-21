@@ -38,12 +38,12 @@
 
 /* Header */
 body {
-    background-color: #120B1D;
+    background-color: #Ffffff;
 }
 
 header {
-    background-color: #F5E5E5;
-    color: #121212;
+    background-color: #Ffffff;
+    color: var(--black);
     text-align: center;
     padding: 1.5rem;
 }
@@ -56,7 +56,7 @@ header h1 {
     outline: none;
     font-size: 24px;
     cursor: pointer;
-    background-color: #F5E5E5;
+    background-color: var(--white);
     border: none;
     transition: filter 0.15s ease-in-out;
     font-weight: 600;
@@ -197,12 +197,12 @@ input {
     margin: 3rem;
     margin-left: 4rem;
     font-size: 20px;
-    color: var(--white);
+    color: var(--black);
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
     border: 1px solid var(--white);
     border-radius: var(--border-radius);
-    background-color: #120B1D;
+    background-color: var(--white);
     box-shadow: var(--shadow);
     line-height: 1.2;
 }
